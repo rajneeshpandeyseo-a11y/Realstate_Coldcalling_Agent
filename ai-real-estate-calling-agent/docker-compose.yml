@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: real_estate_calling_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: real_estate_calling
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d real_estate_calling"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: real_estate_calling_app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    # Runtime configuration comes from the repo `.env` (not committed). The
+    # DATABASE_URL must point at the db service host, not localhost.
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/real_estate_calling
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata:

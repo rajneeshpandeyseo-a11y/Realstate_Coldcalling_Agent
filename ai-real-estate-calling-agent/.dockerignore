@@ -1,0 +1,40 @@
+# Version control
+.git
+.gitignore
+
+# Environment / secrets - NEVER bake into images
+.env
+*.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[oc]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv
+venv/
+
+# Tests & tooling (not needed at runtime)
+tests/
+.coverage
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Data / audio / logs
+*.db
+*.sqlite3
+logs/
+recordings/
+*.wav
+*.mp3

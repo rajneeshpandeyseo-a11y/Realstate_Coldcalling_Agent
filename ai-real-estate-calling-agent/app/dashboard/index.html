@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Real Estate Calling Agent — Dashboard</title>
+<link rel="stylesheet" href="./assets/app.css" />
+<link rel="icon" href="data:," />
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand">
+    <span class="brand-dot"></span>
+    <div>
+      <strong>Calling Agent</strong>
+      <small>Admin Console</small>
+    </div>
+  </div>
+  <nav>
+    <a href="#/" data-route="dashboard">Dashboard</a>
+    <a href="#/leads" data-route="leads">Leads</a>
+    <a href="#/calls" data-route="calls">Calls</a>
+    <a href="#/meetings" data-route="meetings">Meetings</a>
+    <a href="#/followups" data-route="followups">Follow-ups</a>
+    <a href="#/settings" data-route="settings">Settings</a>
+    <a href="#/test-call" data-route="testcall" class="nav-test">Test Call</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div id="connBadge" class="conn-badge">…</div>
+  </div>
+</aside>
+
+<main class="content">
+  <header class="topbar">
+    <h1 id="pageTitle">Dashboard</h1>
+    <div class="auth-note" id="authNote"></div>
+  </header>
+  <section id="view" class="view"></section>
+</main>
+
+<dialog id="confirmDialog" class="confirm-dialog">
+  <div class="dialog-inner">
+    <h3 id="dialogTitle">Confirm</h3>
+    <p id="dialogText"></p>
+    <div id="dialogDetails" class="dialog-details"></div>
+    <div class="dialog-buttons">
+      <button class="btn" id="dialogCancel">Cancel</button>
+      <button class="btn btn-danger" id="dialogOk">Confirm</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="./assets/app.js"></script>
+</body>
+</html>

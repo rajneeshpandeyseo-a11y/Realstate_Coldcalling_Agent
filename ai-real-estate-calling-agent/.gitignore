@@ -1,0 +1,33 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv
+
+# Environment variables - NEVER commit secrets
+.env
+
+# Database / data
+*.db
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Audio / recordings (if any)
+recordings/
+*.wav
+*.mp3
